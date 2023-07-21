@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
 
-function App() {
+const App = () => {
   const [displayValue, setDisplayValue] = useState('0');
 
-  const handleButtonClick = (buttonText) => {
+  const handleButtonClick = (btnValue) => {
     switch (btnValue) {
       case 'x!':
         try {
@@ -15,7 +15,7 @@ function App() {
         break;
       case '%':
         try {
-          setDisplayValue((display.value) / 100);
+          setDisplayValue((displayValue) / 100);
         } catch {
           setDisplayValue('Error');
         }
@@ -122,12 +122,9 @@ function evalExpression(expression) {
     }
   });
 
-
-
-let result = eval(expression); 
-
-return result;
-}
+    let result = eval(expression);
+    return result;
+  };
 
   return (
     <div class="container">
