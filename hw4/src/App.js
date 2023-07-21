@@ -4,96 +4,95 @@ import './App.css';
 function App() {
   const [displayValue, setDisplayValue] = useState('0');
 
-  // Implement button functionality
-  const buttonClick = (buttonText) => {
+  const handleButtonClick = (buttonText) => {
     switch (btnValue) {
       case 'x!':
         try {
-          display.value = factorial((display.value));
+          setDisplayValue(factorial((displayValue)));
         } catch {
-          display.value = 'Error';
+          setDisplayValue('Error');
         }
         break;
       case '%':
         try {
-          display.value = (display.value) / 100;
+          setDisplayValue((display.value) / 100);
         } catch {
-          display.value = 'Error';
+          setDisplayValue('Error');
         }
         break;
       case 'AC':
-        display.value = '';
+        setDisplayValue('');
         break;
       case 'sin':
         try {
-          display.value = Math.sin((display.value * Math.PI) / 180);
+          setDisplayValue(Math.sin((displayValue * Math.PI) / 180));
           } catch {
-          display.value = 'Error';
+          setDisplayValue('Error');
           }
         break;
       case 'ln':
         try {
-          display.value = Math.log((display.value));
+          setDisplayValue(Math.log((displayValue)));
           } catch {
-          display.value = 'Error';
+          setDisplayValue('Error');
           }
         break;
       case 'cos':
         try {
-          display.value = Math.cos((display.value * Math.PI) / 180);
+          setDisplayValue(Math.cos((displayValue * Math.PI) / 180));
           } catch {
-          display.value = 'Error';
+          setDisplayValue('Error');
           }
         break;
       case 'log':
         try {
-          display.value = Math.log10((display.value));
+          setDisplayValue(Math.log10((displayValue)));
           } catch {
-          display.value = 'Error';
+          setDisplayValue('Error');
           }
         break;
       case 'tan':
         try {
-          display.value = Math.tan((display.value * Math.PI) / 180);
+          setDisplayValue(Math.tan((displayValue * Math.PI) / 180));
         } catch {
-          display.value = 'Error';
+          setDisplayValue('Error');
         }
         break;
       case '√':
         try {
-          display.value = Math.sqrt((display.value));
+          setDisplayValue(Math.sqrt((displayValue)));
         } catch {
-          display.value = 'Error';
+          setDisplayValue('Error');
         }
         break;
       case 'EXP':
         try {
-          display.value = Math.exp((display.value));
+          setDisplayValue(Math.exp((displayValue)));
         } catch {
-          display.value = 'Error';
+          setDisplayValue('Error');
         }
         break;
       case 'x^y':
         try {
-          const base = display.value;
-          const exponent = display.value;
-          display.value = Math.pow((base), (exponent));
+          const base = displayValue;
+          const exponent = displayValue;
+          setDisplayValue(Math.pow((base), (exponent)));
         } catch {
-          display.value = 'Error';
+          setDisplayValue('Error');
         }
         break;
       case '=':
         try {
-          display.value = evalExpression(display.value);
+          setDisplayValue(evalExpression(displayValue));
           } catch {
-          display.value = 'Error';
+          setDisplayValue('Error');
           }
         break;
       default:
-        if (display.value === 'Error') {
-          display.value = btnValue;
+        if (displayValue === 'Error') {
+          setDisplayValue(btnValue);
         } else {
-          display.value += btnValue;
+          setDisplayValue(displayValue + btnValue);
         }
     }
   };
@@ -137,40 +136,40 @@ return result;
 
 
         <div class="buttons">
-            <button >Deg</button>
-            <button >x!</button>
-            <button >(</button>
-            <button >)</button>
-            <button >%</button>
-            <button >AC</button>
+            <button onClick={() => handleButtonClick('Deg')}>Deg</button>
+            <button onClick={() => handleButtonClick('x!')}>x!</button>
+            <button onClick={() => handleButtonClick('(')}>(</button>
+            <button onClick={() => handleButtonClick(')')}>)</button>
+            <button onClick={() => handleButtonClick('%')}>%</button>
+            <button onClick={() => handleButtonClick('AC')}>AC</button>
            
-            <button >sin</button>
-            <button >ln</button>
-            <button class="light-grey">7</button>
-            <button class="light-grey ">8</button>
-            <button class="light-grey ">9</button>
-            <button >÷</button>
+            <button onClick={() => handleButtonClick('sin')}>sin</button>
+            <button onClick={() => handleButtonClick('ln')}>ln</button>
+            <button class="light-grey" onClick={() => handleButtonClick('7')}>7</button>
+            <button class="light-grey " onClick={() => handleButtonClick('8')}>8</button>
+            <button class="light-grey " onClick={() => handleButtonClick('9')}>9</button>
+            <button onClick={() => handleButtonClick('÷')}>÷</button>
 
-            <button >cos</button>
-            <button >log</button>
-            <button class="light-grey">4</button>
-            <button class="light-grey">5</button>
-            <button class="light-grey">6</button>
-            <button >x</button>
+            <button onClick={() => handleButtonClick('cos')}>cos</button>
+            <button onClick={() => handleButtonClick('log')}>log</button>
+            <button class="light-grey" onClick={() => handleButtonClick('4')}>4</button>
+            <button class="light-grey" onClick={() => handleButtonClick('5')}>5</button>
+            <button class="light-grey" onClick={() => handleButtonClick('6')}>6</button>
+            <button onClick={() => handleButtonClick('x')}>x</button>
 
-            <button >tan</button>
-            <button >√</button>
-            <button class="light-grey">1</button>
-            <button class="light-grey">2</button>
-            <button class="light-grey">3</button>
-            <button >-</button>
+            <button onClick={() => handleButtonClick('tan')}>tan</button>
+            <button onClick={() => handleButtonClick('√')}>√</button>
+            <button class="light-grey" onClick={() => handleButtonClick('1')}>1</button>
+            <button class="light-grey" onClick={() => handleButtonClick('2')}>2</button>
+            <button class="light-grey" onClick={() => handleButtonClick('3')}>3</button>
+            <button onClick={() => handleButtonClick('-')}>-</button>
 
-            <button >EXP</button>
-            <button >x^y</button>
-            <button class="light-grey">0</button>
-            <button class="light-grey">.</button>
-            <button class="blue">=</button>
-            <button >+</button>
+            <button onClick={() => handleButtonClick('EXP')}>EXP</button>
+            <button onClick={() => handleButtonClick('x^y')}>x^y</button>
+            <button class="light-grey" onClick={() => handleButtonClick('0')}>0</button>
+            <button class="light-grey" onClick={() => handleButtonClick('.')}>.</button>
+            <button class="blue" onClick={() => handleButtonClick('=')}>=</button>
+            <button onClick={() => handleButtonClick('+')}>+</button>
         </div>
     </div>
   );
