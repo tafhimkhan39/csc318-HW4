@@ -1,5 +1,5 @@
 {
-  "homepage": "https://tafhimkhan39.github.io/csc318-HW4",
+  "homepage": "http://tafhimkhan39.github.io/csc318-HW4",
   "name": "hw4",
   "version": "0.1.0",
   "private": true,
@@ -37,5 +37,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^5.0.0"
   }
 }
